@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>PMEC — Hostel Portal</title>
+  <meta name="description" content="Parala Maharaja Engineering College hostel management portal. View hostel details, mess menus, warden contacts."/>
+  <link rel="stylesheet" href="front_page.css"/>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     HEADER BAR (matches admin2 header style)
+     ══════════════════════════════════════════════════════ -->
+<header id="header">
+  <div class="header-inner">
+    <!-- Brand / Logo -->
+    <div class="header-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;color:var(--primary);flex-shrink:0">
+        <path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-4.78 10-10 10Z"/>
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+      </svg>
+      <span class="brand-name">PMEC</span>
+    </div>
+
+    <!-- Nav links (desktop) -->
+    <nav class="header-nav" id="headerNav">
+      <a href="#hero" class="header-link active">Home</a>
+      <a href="#hostels" class="header-link">Hostels</a>
+      <a href="#about" class="header-link">About</a>
+    </nav>
+
+    <!-- Right side: theme toggle + login -->
+    <div class="header-actions">
+      <!-- Theme toggle (identical to admin2) -->
+      <div class="custom-theme-toggle" onclick="toggleTheme()" role="button" tabindex="0">
+        <div class="toggle-inner">
+          <div class="slider-circle">
+            <svg class="moon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            <svg class="sun-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          </div>
+          <div class="track-circle">
+            <svg class="sun-svg-static" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            <svg class="moon-svg-static" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </div>
+        </div>
+      </div>
+<!-- JADE -->
+      <!-- Login button -->
+      <button class="btn btn-primary" onclick="window.location.href='login.html'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+        Login
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div class="mobile-dropdown" id="mobileDropdown">
+    <a href="#hero" class="mobile-link">Home</a>
+    <a href="#hostels" class="mobile-link">Hostels</a>
+    <a href="#about" class="mobile-link">About</a>
+    <button class="btn btn-primary mobile-login-btn" onclick="window.location.href='login.html'">Login</button>
+  </div>
+</header>
+
+
+<!-- ══════════════════════════════════════════════════════
+     HERO SECTION
+     ══════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-inner">
+    <span class="badge badge-green" style="margin-bottom:16px;font-size:12px">🏛 Official Hostel Portal</span>
+    <h1 class="hero-title">Parala Maharaja<br/>Engineering College</h1>
+    <p class="hero-sub">Berhampur, Odisha — Hostel Management System</p>
+    <a href="#hostels" class="btn btn-primary hero-btn">
+      Explore Hostels
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     HOSTELS SECTION
+     ══════════════════════════════════════════════════════ -->
+<section id="hostels">
+  <div class="container">
+    <div class="section-header-block">
+      <div class="section-title">Our Hostels</div>
+      <p class="section-desc">Browse all hostels, view mess menus, and find warden contacts.</p>
+    </div>
+
+    <!-- Loading spinner -->
+    <div id="hostelsLoading" class="state-msg">
+      <div class="spinner"></div>
+      <p>Loading hostels...</p>
+    </div>
+
+    <!-- Error state -->
+    <div id="hostelsError" class="state-msg" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:32px;height:32px;color:var(--fg2);margin-bottom:8px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p id="errorMsg">Could not load hostels.</p>
+      <button class="btn btn-primary btn-sm" onclick="loadHostels()" style="margin-top:10px">Retry</button>
+    </div>
+
+    <!-- Desktop Slider -->
+    <div id="sliderWrapper" class="slider-wrapper" style="display:none">
+      <button class="slider-arrow slider-arrow-prev" id="sliderPrev" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="slider-track" id="sliderTrack"></div>
+      <button class="slider-arrow slider-arrow-next" id="sliderNext" aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+
+    <!-- Mobile stacked -->
+    <div id="mobileCards" class="mobile-cards" style="display:none"></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     ABOUT SECTION
+     ══════════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-title">About PMEC</div>
+        <p class="about-body">Parala Maharaja Engineering College (PMEC) is a premier engineering institution in Berhampur, Odisha, offering world-class hostel facilities to its students. Our hostels provide a safe, clean, and nurturing environment fueling academic excellence.</p>
+        <div class="stat-grid" style="margin-top:20px">
+          <div class="stat-card green">
+            <div class="stat-label">Hostels</div>
+            <div class="stat-value" id="statHostels">—</div>
+            <div class="stat-desc">Registered on portal</div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-label">Support</div>
+            <div class="stat-value">24/7</div>
+            <div class="stat-desc">Always available</div>
+          </div>
+          <div class="stat-card amber">
+            <div class="stat-label">Safety</div>
+            <div class="stat-value">100%</div>
+            <div class="stat-desc">Secured campus</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-features">
+        <div class="card about-feature-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:28px;height:28px;color:var(--primary)"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+          <span>Modern Hostels</span>
+        </div>
+        <div class="card about-feature-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:28px;height:28px;color:var(--primary)"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+          <span>Quality Mess</span>
+        </div>
+        <div class="card about-feature-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:28px;height:28px;color:var(--primary)"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Dedicated Wardens</span>
+        </div>
+        <div class="card about-feature-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:28px;height:28px;color:var(--primary)"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>24/7 Security</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;color:var(--primary)">
+        <path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-4.78 10-10 10Z"/>
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+      </svg>
+      <span>PMEC Hostel Portal · Berhampur, Odisha</span>
+    </div>
+    <div class="footer-links">
+      <a href="#hostels">Hostels</a>
+      <a href="#about">About</a>
+      <a href="login.html">Login</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Parala Maharaja Engineering College. All rights reserved.</p>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════════════════
+     MENU MODAL
+     ══════════════════════════════════════════════════════ -->
+<div class="confirm-overlay" id="menuModalOverlay">
+  <div class="confirm-box menu-modal-box">
+    <div class="menu-modal-header">
+      <span class="section-title" id="menuModalTitle" style="margin:0">Mess Menu</span>
+      <button class="btn btn-outline btn-sm" id="menuModalClose">✕ Close</button>
+    </div>
+    <div class="menu-modal-body">
+      <div id="menuLoading" class="state-msg" style="padding:30px 0">
+        <div class="spinner"></div>
+        <p>Loading menu...</p>
+      </div>
+      <img id="menuImage" class="menu-img" alt="Mess Menu" style="display:none"/>
+      <p id="menuError" class="muted" style="display:none;text-align:center;padding:30px 0">Could not load menu image.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Toast container (same as admin2) -->
+<div id="toast-container"></div>
+
+<script src="front_page.js"></script>
+<script src="menu.js"></script>
+</body>
+</html>

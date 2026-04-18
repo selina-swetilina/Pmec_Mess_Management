@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Parala Maharaja Engineering College – Smart Hostel Management System. View hostel details, wardens, caretakers, and meal menus."/>
+  <title>PMEC Hostel Management System</title>
+
+  <!-- Google Fonts: Inter + Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="frontpage.css" />
+</head>
+<!-- FRONTEND ONLY: Theme class applied by frontpage.js on load from localStorage -->
+
+<body>
+  <!-- Old scrolling notice banner removed — replaced with dedicated Notice Section below -->
+
+  <!-- ===================================================
+       HEADER / NAVBAR
+  =================================================== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+
+      <!-- College Logo + Name — matches admin panel branding -->
+      <div class="brand">
+        <!-- ZeroWaste leaf logo: same as admin dashboard -->
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" class="brand-logo-svg">
+            <path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-4.78 10-10 10Z" />
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="college-name"><big>PMEC</big></span>
+        </div>
+      </div>
+
+      <!-- Header right: Dark mode toggle + Login -->
+      <div class="header-actions">
+
+        <!-- FRONTEND ONLY: Dark mode toggle — preference saved in localStorage -->
+        <div class="custom-theme-toggle" id="themeToggle" onclick="toggleTheme()" role="button" tabindex="0"
+          aria-label="Toggle dark mode" title="Toggle dark/light mode">
+          <div class="toggle-inner">
+            <div class="slider-circle">
+              <svg class="moon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+              <svg class="sun-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="m4.93 4.93 1.41 1.41" />
+                <path d="m17.66 17.66 1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="m6.34 17.66-1.41 1.41" />
+                <path d="m19.07 4.93-1.41 1.41" />
+              </svg>
+            </div>
+            <div class="track-circle">
+              <svg class="sun-svg-static" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="m4.93 4.93 1.41 1.41" />
+                <path d="m17.66 17.66 1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="m6.34 17.66-1.41 1.41" />
+                <path d="m19.07 4.93-1.41 1.41" />
+              </svg>
+              <svg class="moon-svg-static" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <a href="login.html" class="btn-login" id="loginBtn" aria-label="Login to your hostel account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+            <polyline points="10 17 15 12 10 7" />
+            <line x1="15" y1="12" x2="3" y2="12" />
+          </svg>
+          Login
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ===================================================
+       HERO SECTION
+  =================================================== -->
+  <section class="hero" aria-label="Homepage hero">
+    <div class="hero-bg-shapes" aria-hidden="true">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Hostel Management Portal
+      </div>
+      <h1 class="hero-title">Welcome to <br><span class="highlight">PMEC Hostels</span></h1>
+      <p class="hero-sub">Your home away from home. Explore hostel facilities, meet your wardens and caretakers, and
+        check weekly meal menus — all in one place.</p>
+      <a href="#hostels-section" class="btn-explore">
+        Explore Hostels
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+    </div>
+    <!-- Stats bar -->
+    <div class="hero-stats" aria-label="Quick stats">
+      <div class="stat-item">
+        <span class="stat-value" id="stat-hostels">—</span>
+        <span class="stat-label">Hostels</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-value" id="stat-wardens">—</span>
+        <span class="stat-label">Wardens</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <!-- BACKEND: Total capacity calculated from hostel capacity field -->
+        <span class="stat-value" id="stat-capacity">—</span>
+        <span class="stat-label">Capacity</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       NOTICE TICKER BAR
+       Placed immediately below the hero ("Welcome to PMEC") section.
+       BACKEND: Notices fetched from GET /api/notices
+       MongoDB Schema: { title: String, pdfUrl: String, createdAt: Date }
+       Sort: { createdAt: -1 } — latest notices appear first in the scroll
+  =================================================== -->
+  <div class="ticker-bar" id="tickerBar" role="region" aria-label="Scrolling notice ticker">
+
+    <!-- Left label chip -->
+    <div class="ticker-label" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0 1 18 14.158V11a6.002 6.002 0 0 0-4-5.659V5a2 2 0 1 0-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 1 1-6 0v-1m6 0H9"/>
+      </svg>
+      Notices
+    </div>
+
+    <!-- Ticker viewport — overflow hidden, clips the scrolling track -->
+    <div class="ticker-viewport" aria-live="polite">
+
+      <!-- Loading state: shown while API is in progress -->
+      <div class="ticker-loading" id="tickerLoading" aria-label="Loading notices">
+        <span class="ticker-loading-dot"></span>
+        <span class="ticker-loading-dot"></span>
+        <span class="ticker-loading-dot"></span>
+      </div>
+
+      <!--
+        Ticker track — duplicated by JS for seamless infinite loop.
+        FRONTEND: JS injects two copies of the notice items here.
+        The track scrolls left continuously; pauses on hover via CSS.
+        BACKEND: Items are built from GET /api/notices response.
+      -->
+      <div class="ticker-track" id="tickerTrack" aria-hidden="true"></div>
+
+      <!-- Error state: shown if API call fails and returns no data -->
+      <div class="ticker-error" id="tickerError" style="display:none;">
+        Unable to load notices.
+      </div>
+
+    </div><!-- /.ticker-viewport -->
+
+  </div><!-- /#tickerBar -->
+
+  <!-- ===================================================
+       NOTICE SECTION — Vertical scrollable notice board
+       BACKEND: Notices fetched from GET /api/notices
+       Expected Response: [{ id, title, pdfUrl, createdAt }]
+       MongoDB Schema: { title: String, pdfUrl: String, createdAt: Date }
+       Sort: { createdAt: -1 } (latest first)
+  =================================================== -->
+  <section class="notices-section" id="notices-section" aria-label="College notices and announcements">
+    <div class="notices-section-inner">
+
+      <!-- Section Header -->
+      <div class="notices-section-header">
+        <div class="notices-title-group">
+          <!-- "New Notices" label with animated pulse indicator -->
+          <div class="new-notices-badge" aria-label="New notices available">
+            <span class="new-notices-dot" aria-hidden="true"></span>
+            New Notices
+          </div>
+          <h2 class="notices-heading">Notice Board</h2>
+          <p class="notices-subheading">Circulars, schedules &amp; announcements — latest first.</p>
+        </div>
+
+        <!-- Notice count chip (populated by JS) -->
+        <div class="notices-count-chip" id="noticesCountChip" style="display:none;" aria-live="polite">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+          <span id="noticesCountText">0 notices</span>
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────────────
+           NOTICE LIST CONTAINER
+           Fixed height with vertical scroll for older notices.
+           FRONTEND: Notice rows injected here by frontpage.js
+           BACKEND: GET /api/notices → sorted by createdAt DESC
+      ───────────────────────────────────────────────────── -->
+      <div class="notice-list-container" id="noticeListContainer" role="feed" aria-label="Notice list">
+
+        <!-- Loading skeleton (shown while API call is in progress) -->
+        <div class="notice-list-loading" id="noticesLoading" aria-label="Loading notices">
+          <div class="notice-skeleton-row"></div>
+          <div class="notice-skeleton-row"></div>
+          <div class="notice-skeleton-row"></div>
+          <div class="notice-skeleton-row notice-skeleton-row--short"></div>
+        </div>
+
+        <!-- Notice rows injected here by JS (renderNotices function) -->
+        <ul class="notice-list" id="noticesGrid" aria-label="Notices list"></ul>
+
+        <!-- Empty state — shown when API returns [] -->
+        <div class="notice-list-empty" id="noticesEmpty" style="display:none;" role="status" aria-live="polite">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          <p>No notices available at the moment.</p>
+        </div>
+
+        <!-- Error state — shown if GET /api/notices fails -->
+        <div class="notice-list-error" id="noticesError" style="display:none;" role="alert" aria-live="assertive">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <p>Unable to load notices. Please try again.</p>
+          <button class="btn-retry" id="noticesRetryBtn">Retry</button>
+        </div>
+
+      </div><!-- /.notice-list-container -->
+
+    </div><!-- /.notices-section-inner -->
+  </section>
+
+  <!-- ===================================================
+       HOSTELS SECTION
+  =================================================== -->
+  <section class="hostels-section" id="hostels-section" aria-label="Hostel listings">
+    <div class="section-header">
+      <h2 class="section-title">Our Hostels</h2>
+      <p class="section-sub">Find information about each hostel, including contact details and meal services.</p>
+      <!-- BACKEND: Total capacity summed dynamically from hostel capacity fields -->
+      <div class="total-capacity-bar" id="totalCapacityBar" style="display:none;" aria-label="Total hostel capacity">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+        Total Hostel Capacity: <strong id="totalCapacityNum">—</strong> students
+      </div>
+    </div>
+
+    <!-- Slider Controls (Desktop) -->
+    <div class="slider-controls" aria-label="Slider navigation">
+      <button class="slider-btn" id="prevBtn" aria-label="Previous hostel" title="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+
+      <!-- Loading skeleton placeholder -->
+      <div class="slider-track-wrapper">
+        <div class="slider-track" id="sliderTrack" role="list" aria-live="polite" aria-label="Hostel cards">
+
+          <!-- FRONTEND: Cards are injected here by frontpage.js -->
+          <!-- Loading state -->
+          <div class="loading-state" id="loadingState" aria-label="Loading hostels">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="slider-btn" id="nextBtn" aria-label="Next hostel" title="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Slider Dots Pagination -->
+    <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Hostel navigation dots"></div>
+
+    <!-- Error state -->
+    <div class="error-state" id="errorState" style="display:none;" role="alert">
+      <div class="error-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+      </div>
+      <p>Unable to load hostel data. Please try again.</p>
+      <button class="btn-retry" id="retryBtn">Retry</button>
+    </div>
+
+  </section>
+
+  <!-- ===================================================
+       MENU MODAL POPUP
+  =================================================== -->
+  <div class="modal-overlay" id="menuModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+    aria-hidden="true">
+    <div class="modal-container">
+
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 11l19-9-9 19-2-8-8-2z" />
+          </svg>
+          Weekly Mess Menu
+        </h2>
+        <button class="modal-close" id="modalClose" aria-label="Close menu modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- FRONTEND: Menu image loaded dynamically from /api/menu -->
+        <div class="menu-img-wrapper" id="menuImgWrapper">
+          <div class="menu-loading" id="menuLoading" aria-label="Loading menu image">
+            <div class="spinner" aria-hidden="true"></div>
+            <span>Loading menu...</span>
+          </div>
+          <img src="" alt="Weekly mess menu for the hostel" class="menu-img" id="menuImg" style="display:none;" />
+          <div class="menu-error" id="menuError" style="display:none;">
+            <p>Menu image not available.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <p class="menu-note">Menu is subject to change. Contact the mess vendor for updates.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================
+       FOOTER
+  =================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo-text">PMEC</span>
+        <span class="footer-desc">Hostel Management System</span>
+      </div>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="login.html" class="footer-link">Login</a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a href="#hostels-section" class="footer-link">Hostels</a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a href="#notices-section" class="footer-link">Notice</a>
+      </div>
+      <p class="footer-copy">&copy; <span id="currentYear"></span> Parala Maharaja Engineering College. All rights
+        reserved.</p>
+    </div>
+  </footer>
+
+  <!-- frontpage.js handles all dynamic rendering and API calls -->
+  <script src="frontpage.js"></script>
+
+</body>
+
+</html>

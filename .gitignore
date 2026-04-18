@@ -1,0 +1,6 @@
+.agent/
+fun/
+node_modules/
+Node/
+.env
+Test Dummy/
